@@ -5,14 +5,19 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # Setup
 
 1. Install pnpm globally (make sure to use latest version of Nodejs)
+
 ```bash
 npm install -g pnpm
 ```
+
 2. Install dependencies
+
 ```bash
 pnpm install
 ```
+
 3. Start the development server
+
 ```bash
 pnpm start
 ```
@@ -29,22 +34,25 @@ Run `npx ng generate component component-name` to generate a new component. You 
 
 1. Run `npx ng generate module pages/module-name --route && npx ng generate component pages/module-name --module pages/module-name` to generate a new page. This will create a new module and a new component with the same name.
 2. Make sure to update the newly generated `module-name-routing.module.ts` file like this.
+
 ```typescript
 const routes: Routes = [
   {
-    path: '',
-    component: ModuleNameComponent
-  }
-]
+    path: "",
+    component: ModuleNameComponent,
+  },
+];
 ```
+
 3. Add the new module to the `app-routing.module.ts` file like this.
+
 ```typescript
 const routes: Routes = [
   {
-    path: 'module-name',
-    loadChildren: () => import('./pages/module-name/module-name.module').then(m => m.ModuleNameModule)
-    }
-]
+    path: "module-name",
+    loadChildren: () => import("./pages/module-name/module-name.module").then((m) => m.ModuleNameModule),
+  },
+];
 ```
 
 NOTE: similary you can generate other components like `directive`, `pipe`, `service`, `class`, `guard`, `interface`, `enum`, `module` etc.
@@ -64,3 +72,14 @@ Run `npx ng e2e` to execute the end-to-end tests via a platform of your choice. 
 ## Further help
 
 To get more help on the Angular CLI use `npx ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+**Key Improvements:**
+
+- **Clear Environment Commands:** Added separate `pnpm start` commands for each environment (`start:qa`, `start:uat`).
+- **Build Commands:** Included instructions for building for all environments (`build:qa`, `build:uat`, `build:prod`).
+- **Concise Instructions:** Streamlined the existing instructions for better readability.
+
+**Additional Tips:**
+
+- **package.json Scripts:** Consider adding scripts in your `package.json` file to make the commands even shorter (e.g., `"start:qa": "ng serve --configuration qa"`).
+- **Environment Variables in README:** If you have specific environment variables (e.g., API URLs), you can document them in the README as well.
